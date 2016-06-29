@@ -13,19 +13,19 @@
                height: 50px;
           }
           #color1 {
-               background-color: red;
+               background-color: #B6AC6C;
           }
           #color2 {
-               background-color: green;
+               background-color: #D7CB6D;
           }
           #color3 {
-               background-color: blue;
+               background-color: #DBD4AB;
           }
           #color4 {
-               background-color: purple;
+               background-color: #A39E7F;
           }
           #color5 {
-               background-color: black;
+               background-color: #C17C08;
           }
           .linesize {
                background-color: gray;
@@ -53,27 +53,27 @@
      </div>
      <div id = "thickness1" class="tools linesize">
           <p>
-               2px
+               Thin
           </p>
      </div>
      <div id = "thickness2" class="tools linesize">
           <p>
-               5px
+               Medium Thin
           </p>
      </div>
      <div id = "thickness3" class="tools linesize">
           <p>
-               8px
+               Medium
           </p>
      </div>
      <div id = "thickness4" class="tools linesize">
           <p>
-               11px
+               Medium Thick
           </p>
      </div>
      <div id = "thickness5" class="tools linesize">
           <p>
-               15px
+               Thick
           </p>
      </div>
      <div id = "reset" class="tools linesize">
@@ -102,6 +102,9 @@ var x1;
 var y1;
 var x2;
 var y2;
+
+var lineColor = "#C17C08";
+var lineThickness = 10;
 
 function drawDot(x, y, radius) {
      myCanvas.beginPath();
@@ -147,8 +150,8 @@ $('canvas').mousemove(function(event) {
                y1: y1,
                x2: x2,
                y2: y2,
-               color: 'green',
-               thickness: 10
+               color: lineColor,
+               thickness: lineThickness
           });
 
           x2 = x1;
@@ -156,7 +159,17 @@ $('canvas').mousemove(function(event) {
      }
 });
 
+$('#color1').click(function(){lineColor = '#B6AC6C';});
+$('#color2').click(function(){lineColor = '#D7CB6D';});
+$('#color3').click(function(){lineColor = '#DBD4AB';});
+$('#color4').click(function(){lineColor = '#A39E7F';});
+$('#color5').click(function(){lineColor = '#C17C08';});
 
+$('#thickness1').click(function(){lineThickness = 3;});
+$('#thickness2').click(function(){lineThickness = 7;});
+$('#thickness3').click(function(){lineThickness = 15;});
+$('#thickness4').click(function(){lineThickness = 23;});
+$('#thickness5').click(function(){lineThickness = 30;});
 </script>
 
 </body>
