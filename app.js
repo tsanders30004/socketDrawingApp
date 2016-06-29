@@ -11,9 +11,9 @@ io.on('connection', function(clientSocket) {
 
      console.log('user connected');
 
-     clientSocket.on('draw', function(msg) {
-          io.broadcast.emit('draw', msg);
-          console.log(msg);
+     clientSocket.on('draw', function(coords) {
+          io.emit('draw', coords);
+          console.log(coords);
      });
 
 

@@ -138,17 +138,19 @@ $('canvas').mouseup(function(event){
 
 $('canvas').mousemove(function(event) {
      if (mouseDown) {
-          x1 = event.clientX;
-          y1 = event.clientY;
-          drawDot(x1, y1, 10);
+          x = event.clientX;
+          y = event.clientY;
+
           serverSocket.emit('draw', {
-               x: x1,
-               y: y1
+               x: x,
+               y: y
           });
      }
-
 });
 
+serverSocket.on('draw', function(coords) {
+     drawDot(coords.x, coords.y, 10);
+});
 
 console.log(x2, y2);
 
