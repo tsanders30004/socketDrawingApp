@@ -138,8 +138,9 @@ canvas {
 
      $('canvas').mousemove(function(event) {
           if (mouseDown) {
-               x1 = event.clientX;
-               y1 = event.clientY;
+
+               x1 = event.clientX - c.offsetLeft;
+               y1 = event.clientY - c.offsetTop;;
 
                serverSocket.emit('draw', {
                     x1: x1,
