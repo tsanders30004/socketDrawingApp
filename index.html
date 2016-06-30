@@ -56,6 +56,11 @@ canvas {
      background-color: #DDDDDD;
      padding: 50px;
 }
+#stroke_selector {
+     position: absolute;
+     top: 30%;
+     left: 5%;
+}
 </style>
 </head>
 <body  id="all_content">
@@ -74,6 +79,10 @@ canvas {
                <div id = "thickness3" class="linesize">Medium</div>
                <div id = "thickness4" class="linesize">Medium Thick</div>
                <div id = "thickness5" class="linesize">Thick</div>
+          </div>
+
+          <div id = "stroke_selector">
+               <input type="range" id="myRange">
           </div>
 
           <div id = "reset" class="tools linesize">
@@ -101,6 +110,10 @@ canvas {
 
      var lineColor = "#C17C08";
      var lineThickness = 10;
+
+     /* initialize thickness selector min and max */
+     document.getElementById("myRange").min = 2;
+     document.getElementById("myRange").max = 30;
 
      function drawDot(x, y, radius) {
           myCanvas.beginPath();
@@ -133,14 +146,14 @@ canvas {
      });
 
      serverSocket.on('draw', function(line) {
-          drawLine(line.x1, line.y1, line.x2, line.y2, line.color, line.thickness);
+          drawLine(line.x1, line.y1, line.x2, line.y2, line.color, document.getElementById("myRange").value);
      });
 
      $('canvas').mousemove(function(event) {
           if (mouseDown) {
 
                x1 = event.clientX - c.offsetLeft;
-               y1 = event.clientY - c.offsetTop;;
+               y1 = event.clientY - c.offsetTop;
 
                serverSocket.emit('draw', {
                     x1: x1,
