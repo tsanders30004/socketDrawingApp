@@ -15,16 +15,9 @@ io.on('connection', function(clientSocket) {
           io.emit('draw', coords);
           console.log(coords);
      });
-
-
-
-
-
-
 });
 
 //create listener and broadcaster
-
 
 server.listen(3000, function() {
      console.log('Listening on 3000...');
