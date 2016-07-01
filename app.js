@@ -8,17 +8,12 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(clientSocket) {
-
-     console.log('user connected');
-
      clientSocket.on('draw', function(coords) {
           io.emit('draw', coords);
-          console.log(coords);
      });
 });
 
 //create listener and broadcaster
-
 server.listen(3000, function() {
      console.log('Listening on 3000...');
 });

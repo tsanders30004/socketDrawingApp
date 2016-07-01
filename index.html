@@ -15,8 +15,8 @@ body {
      position: absolute;
      top: 116px;
      left: 1.5em;
-     -ms-transform: rotate(90deg); /* IE 9 */
-     -webkit-transform: rotate(90deg); /* Safari */
+     -ms-transform: rotate(90deg);      /* IE 9 */
+     -webkit-transform: rotate(90deg);  /* Safari */
      transform: rotate(90deg);
 }
 #myRange {
@@ -24,8 +24,8 @@ body {
 }
 canvas {
      position: absolute;
-     top: 5%;
-     left: 25%;
+     top: 50px;
+     left: 15%;
      background-color: white;
 }
 .color_tools {
@@ -54,7 +54,6 @@ canvas {
      text-align: center;
      color: white;
 }
-
 #color1 {
      background-color: #B6AC6C;
 }
@@ -143,7 +142,6 @@ canvas {
      }
 
      var mouseDown = false;
-     //set up jquery to detect event
      $('canvas').mousedown(function(event){
           mouseDown = true;
      });
@@ -184,11 +182,6 @@ canvas {
      $('#color4').click(function(){lineColor = '#A39E7F';});
      $('#color5').click(function(){lineColor = '#C17C08';});
 
-     // $('#thickness1').click(function(){lineThickness = 3;});
-     // $('#thickness2').click(function(){lineThickness = 7;});
-     // $('#thickness3').click(function(){lineThickness = 15;});
-     // $('#thickness4').click(function(){lineThickness = 23;});
-     // $('#thickness5').click(function(){lineThickness = 30;});
      </script>
 
      </body>
