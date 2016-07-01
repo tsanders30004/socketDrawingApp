@@ -8,25 +8,43 @@ body {
 }
 #colors {
      position: absolute;
-     top: 0;
-     left: 0;
+     top:      50px;
+     left:     2em;
 }
-#line_thickness {
+#stroke_selector {
      position: absolute;
-     top: 0;
-     left: 5%;
-     border: 1px solid black;
+     top: 116px;
+     left: 1.5em;
+     -ms-transform: rotate(90deg); /* IE 9 */
+     -webkit-transform: rotate(90deg); /* Safari */
+     transform: rotate(90deg);
+}
+#myRange {
+     width: 150px;
 }
 canvas {
      position: absolute;
-     top: 0;
-     left: 20%;
+     top: 5%;
+     left: 25%;
      background-color: white;
 }
 .color_tools {
      float: top;
-     width: 35px;
-     height: 35px;
+     width: 30px;
+     height: 30px;
+}
+#reset {
+     position: absolute;
+     top: 230px;
+     left: 2em;
+     /*width: 150px;*/
+}
+#reset_btn {
+     /*position: absolute;
+     top: 20%;
+     left: 5%;*/
+     height: 50px;
+     width: 75px;
 }
 .linesize {
      float: top;
@@ -56,14 +74,10 @@ canvas {
      background-color: #DDDDDD;
      padding: 50px;
 }
-#stroke_selector {
-     position: absolute;
-     top: 30%;
-     left: 5%;
-}
+
 </style>
 </head>
-<body  id="all_content">
+<body id="all_content">
 
           <div id="colors">
                <div id = "color1" class="color_tools"></div>
@@ -73,22 +87,12 @@ canvas {
                <div id = "color5" class="color_tools"></div>
           </div>
 
-          <div id="line_thickness">
-               <div id = "thickness1" class="linesize">Thin</div>
-               <div id = "thickness2" class="linesize">Medium Thin</div>
-               <div id = "thickness3" class="linesize">Medium</div>
-               <div id = "thickness4" class="linesize">Medium Thick</div>
-               <div id = "thickness5" class="linesize">Thick</div>
-          </div>
-
           <div id = "stroke_selector">
                <input type="range" id="myRange">
           </div>
 
-          <div id = "reset" class="tools linesize">
-               <p>
-                    Reset
-               </p>
+          <div id = "reset" onclick="clearCanvas()">
+               <button id="reset_btn" class="btn btn-success"><h3>Reset</h3></button>
           </div>
 
           <canvas id="myCanvas" width="700" height="700" style="border:1px solid #d3d3d3;">
@@ -133,6 +137,11 @@ canvas {
           myCanvas.stroke();
      }
 
+     function clearCanvas(){
+          myCanvas.fillStyle = "#FFFFFF";
+          myCanvas.fillRect(0, 0, 700, 700);
+     }
+
      var mouseDown = false;
      //set up jquery to detect event
      $('canvas').mousedown(function(event){
@@ -175,11 +184,11 @@ canvas {
      $('#color4').click(function(){lineColor = '#A39E7F';});
      $('#color5').click(function(){lineColor = '#C17C08';});
 
-     $('#thickness1').click(function(){lineThickness = 3;});
-     $('#thickness2').click(function(){lineThickness = 7;});
-     $('#thickness3').click(function(){lineThickness = 15;});
-     $('#thickness4').click(function(){lineThickness = 23;});
-     $('#thickness5').click(function(){lineThickness = 30;});
+     // $('#thickness1').click(function(){lineThickness = 3;});
+     // $('#thickness2').click(function(){lineThickness = 7;});
+     // $('#thickness3').click(function(){lineThickness = 15;});
+     // $('#thickness4').click(function(){lineThickness = 23;});
+     // $('#thickness5').click(function(){lineThickness = 30;});
      </script>
 
      </body>
